@@ -13,7 +13,7 @@ e = Entry(master)
 
 canvas=Canvas(master,width=500,height=450)
 
-image=ImageTk.PhotoImage(Image.open("C:robot.png"))
+image=ImageTk.PhotoImage(Image.open("robot.png"))
 
 canvas.create_image(0,0,anchor=NW,image=image)
 canvas.pack()
