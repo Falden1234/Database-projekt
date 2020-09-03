@@ -5,19 +5,20 @@ import random
 import tkinter
 from tkinter import *
 from PIL import ImageTk,Image
-import datetime
-
 
 
 master = Tk()
 master.title("Tegninger")
 e = Entry(master)
 
+
+
 canvas=Canvas(master,width=500,height=450)
 
-image=ImageTk.PhotoImage(Image.open("robot.png"))
+#562 x 446
+image=ImageTk.PhotoImage(Image.open("robot2.jpg"))
 
-canvas.create_image(0,0,anchor=NW,image=image)
+canvas.create_image(250,225,anchor=CENTER,image=image)
 canvas.pack()
 
 #color#
