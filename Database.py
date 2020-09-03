@@ -45,7 +45,7 @@ except Exception as e:
 
 c = con.cursor()
 #c.execute('INSERT INTO personer (navn,alder,land) VALUES (?,?,?)', ("Hans", 38, 1))
-c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("DeadPool", 900))
+#c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("DeadPool", 900))
 #c.execute('INSERT INTO status (status) VALUES (?)', ("Afsendt",))
 #c.execute('DROP TABLE produkter')
 #c.execute('DELETE FROM status WHERE status.id =5')
@@ -70,3 +70,10 @@ while not inp.startswith('q'):
 
         for p in c:
             print('id: {} er {} '.format(p[0], p[1]))
+
+    elif inp == 'visp':
+        c = con.cursor()
+        c.execute('SELECT navn, pris FROM produkter')
+
+        for p in c:
+            print('Produkt: {} og pris {} '.format(p[0], p[1]))
