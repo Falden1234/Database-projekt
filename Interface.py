@@ -13,7 +13,7 @@ e = Entry(master)
 
 canvas=Canvas(master,width=500,height=450)
 
-image=ImageTk.PhotoImage(Image.open("C:robot.png"))
+image=ImageTk.PhotoImage(Image.open("robot.png"))
 
 canvas.create_image(0,0,anchor=NW,image=image)
 canvas.pack()
@@ -217,16 +217,13 @@ def move_home():
 def move():
     prog.move_xyz(-0.480,-0.298,0.342)
 
-PlotKnap = Button(master, text="Tegning", width = 15, height = 2, command = plot, bg = "medium spring green").place(x=185, y=240)
-
-RandomKnap = Button(master, text="Random", width = 15, height = 2, command = random, bg = ColorInput).place(x=300, y=240)
-
-Clear = Button(master, text="Clear", width = 15, height = 2, command = clear, bg = ColorInput).place(x=75, y=240)
-
-Robot = Button(master, text="Robot", width = 15, height = 2, command = RobotTegning, bg = "red").place(x=105, y=300)
 
 
-Home = Button(master, text="Home", width = 15, height = 2, command = move_home, bg = "red").place(x=245, y=300)
+RandomKnap = Button(master, text="Buy", width = 15, height = 2, command = random, bg = ColorInput).place(x=250, y=240)
+
+Clear = Button(master, text="Add to shopping cart", width = 17, height = 2, command = clear, bg = ColorInput).place(x=85, y=240)
+
+
 
 
 
