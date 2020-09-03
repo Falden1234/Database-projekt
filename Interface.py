@@ -5,6 +5,8 @@ import random
 import tkinter
 from tkinter import *
 from PIL import ImageTk,Image
+import datetime
+
 
 
 master = Tk()
