@@ -60,6 +60,8 @@ print('')
 print('Kommandoer: ')
 print('  vis - Viser alle status i databasen')
 print('  visp - Viser alle produkter')
+print('  viso - Viser alle ordre')
+print('  lavordre - Laver ny ordre')
 print('  q   - Afslut program')
 
 
