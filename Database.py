@@ -1,5 +1,4 @@
 import sqlite3
-import datetime
 
 #Her oprettes en forbindelse til databasefilen
 #Hvis filen ikke findes, vil sqlite oprette en ny tom database.
@@ -19,7 +18,7 @@ try:
     con.execute("""CREATE TABLE ordre (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
 		produkt INTEGER,
-        dato STRING,
+        dato INTEGER,
         status INTEGER)""")
     print('Tabel oprettet')
 except Exception as e:
@@ -48,7 +47,7 @@ c = con.cursor()
 #c.execute('INSERT INTO personer (navn,alder,land) VALUES (?,?,?)', ("Hans", 38, 1))
 #c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("DeadPool", 900))
 #c.execute('INSERT INTO status (status) VALUES (?)', ("Afsendt",))
-#c.execute('DROP TABLE ordre')
+#c.execute('DROP TABLE produkter')
 #c.execute('DELETE FROM status WHERE status.id =5')
 #Efter at have ændret i databasen skal man kalde funktionen commit.
 con.commit()
@@ -59,7 +58,8 @@ inp = ''
 print('')
 print('Kommandoer: ')
 print('  vis - Viser alle status i databasen')
-print('  visp - Viser alle produkter')
+print('  visp - Viser alle produkterne i produkt tabellen')
+
 print('  q   - Afslut program')
 
 
@@ -78,23 +78,4 @@ while not inp.startswith('q'):
         c.execute('SELECT navn, pris FROM produkter')
 
         for p in c:
-            print('Produkt: {} Pris: {} '.format(p[0], p[1]))
-
-    elif inp == 'viso':
-        c = con.cursor()
-        c.execute('SELECT produkt, dato, status FROM ordre')
-
-        for p in c:
-            print('Produkt: {} er bestilt den {} status: {} '.format(p[0], p[1], p[2]))
-        print("diller daller")
-
-        con.commit()
-
-    elif inp == 'lavordre':
-        n = input('Vælg produkt: ');
-        x = datetime.datetime.now()
-        #print(x)
-        #print(x.strftime("%A")) hvilken dag   #print(x.year) hvilket år
-        print(x.strftime("%d"),"-",x.strftime("%m"),"-",x.strftime("%Y")) #dansk dato
-
-        c.execute('INSERT INTO ordre (produkt,dato,status) VALUES (?,?,?)', (n,x,1))
+            print('Produkt: {} og pris {} '.format(p[0], p[1]))
