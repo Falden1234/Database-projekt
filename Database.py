@@ -45,9 +45,9 @@ except Exception as e:
 
 c = con.cursor()
 #c.execute('INSERT INTO personer (navn,alder,land) VALUES (?,?,?)', ("Hans", 38, 1))
-#c.execute('INSERT INTO personer (navn,alder,land) VALUES (?,?,?)', ("Kim", 37, 2))
+c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("DeadPool", 900))
 #c.execute('INSERT INTO status (status) VALUES (?)', ("Afsendt",))
-#c.execute('DROP TABLE venner')
+#c.execute('DROP TABLE produkter')
 #c.execute('DELETE FROM status WHERE status.id =5')
 #Efter at have ændret i databasen skal man kalde funktionen commit.
 con.commit()
