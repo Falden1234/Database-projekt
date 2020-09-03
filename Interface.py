@@ -13,7 +13,7 @@ e = Entry(master)
 
 canvas=Canvas(master,width=500,height=450)
 
-image=ImageTk.PhotoImage(Image.open("C:\\Users\\olive\\OneDrive - Syddansk Erhvervsskole\\OTG\\Programering\\Sørens github\\2019_2d\\robotkunst\\robot.png"))
+image=ImageTk.PhotoImage(Image.open("C:robot.png"))
 
 canvas.create_image(0,0,anchor=NW,image=image)
 canvas.pack()
