@@ -58,14 +58,9 @@ inp = ''
 print('')
 print('Kommandoer: ')
 print('  vis - Viser alle status i databasen')
-<<<<<<< HEAD
 print('  visp - Viser alle produkter')
 print('  viso - Viser alle ordre')
 print('  lavordre - Laver ny ordre')
-=======
-print('  visp - Viser alle produkterne i produkt tabellen')
-
->>>>>>> 78f01015e0cd110e59eb4ba18bb90ac40e849fcf
 print('  q   - Afslut program')
 
 
@@ -84,7 +79,6 @@ while not inp.startswith('q'):
         c.execute('SELECT navn, pris FROM produkter')
 
         for p in c:
-<<<<<<< HEAD
             print('Produkt: {} Pris: {} '.format(p[0], p[1]))
 
     elif inp == 'viso':
@@ -104,6 +98,3 @@ while not inp.startswith('q'):
 
         c.execute('INSERT INTO ordre (produkt,dato,status) VALUES (?,?,?)', (n,x,1))
         con.commit()
-=======
-            print('Produkt: {} og pris {} '.format(p[0], p[1]))
->>>>>>> 6fc3261a367ac60d8fa6aa84685d98fabddd4f4a
