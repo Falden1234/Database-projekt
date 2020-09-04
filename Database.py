@@ -1,5 +1,6 @@
 import sqlite3
-
+import datetime
+datetime.date.fromisoformat('2019-12-04')
 #Her oprettes en forbindelse til databasefilen
 #Hvis filen ikke findes, vil sqlite oprette en ny tom database.
 con = sqlite3.connect('data_maleri.db')
@@ -94,7 +95,8 @@ while not inp.startswith('q'):
         x = datetime.datetime.now()
         #print(x)
         #print(x.strftime("%A")) hvilken dag   #print(x.year) hvilket år
-        print(x.strftime("%d"),"-",x.strftime("%m"),"-",x.strftime("%Y")) #dansk dato
+        #print(x.strftime("%d"),"-",x.strftime("%m"),"-",x.strftime("%Y")) #dansk dato
+        print( x.strftime('We are the %d, %b %Y'))
 
         c.execute('INSERT INTO ordre (produkt,dato,status) VALUES (?,?,?)', (n,x,1))
         con.commit()
