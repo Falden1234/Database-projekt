@@ -64,39 +64,56 @@ print('  viso - Viser alle ordre')
 print('  lavordre - Laver ny ordre')
 print('  q   - Afslut program')
 
+class Data:
+    def __init__(self):
+        self.con = sqlite3.connect('data_maleri.db')
+        print('Database åbnet i class')
 
-while not inp.startswith('q'):
-    inp = input('> ')
-
-    if inp == 'vis':
-        c = con.cursor()
+    def product(self):
+        c = self.con.cursor()
         c.execute('SELECT id, status FROM status')
+        # for p in c:
+        #     print('id: {} er {} '.format(p[0], p[1]))
 
-        for p in c:
-            print('id: {} er {} '.format(p[0], p[1]))
-
-    elif inp == 'visp':
-        c = con.cursor()
-        c.execute('SELECT navn, pris FROM produkter')
-
-        for p in c:
-            print('Produkt: {} Pris: {} '.format(p[0], p[1]))
-
-    elif inp == 'viso':
-        c = con.cursor()
-        c.execute('SELECT produkt, dato, status FROM ordre')
-
-        for p in c:
-            print('Produkt: {} er bestilt den {} status: {} '.format(p[0], p[1], p[2]))
-        con.commit()
-
-    elif inp == 'lavordre':
-        n = input('Vælg produkt: ');
+    def add_product(self, n):
         x = datetime.datetime.now()
-        #print(x)
-        #print(x.strftime("%A")) hvilken dag   #print(x.year) hvilket år
-        #print(x.strftime("%d"),"-",x.strftime("%m"),"-",x.strftime("%Y")) #dansk dato
         print( x.strftime('We are the %d, %b %Y'))
-
         c.execute('INSERT INTO ordre (produkt,dato,status) VALUES (?,?,?)', (n,x,1))
-        con.commit()
+        self.con.commit()
+
+# d = Data()
+# d.product()
+# d.add_product(2)
+# print('hello')
+
+    # while not inp.startswith('q'):
+    #     inp = input('> ')
+
+        # if inp == 'vis':
+        #     data.self.vis
+
+        # elif inp == 'visp':
+        #     c = con.cursor()
+        #     c.execute('SELECT navn, pris FROM produkter')
+        #
+        #     for p in c:
+        #         print('Produkt: {} Pris: {} '.format(p[0], p[1]))
+        #
+        # elif inp == 'viso':
+        #     c = con.cursor()
+        #     c.execute('SELECT produkt, dato, status FROM ordre')
+        #
+        #     for p in c:
+        #         print('Produkt: {} er bestilt den {} status: {} '.format(p[0], p[1], p[2]))
+        #     con.commit()
+        #
+        # elif inp == 'lavordre':
+        #     n = input('Vælg produkt: ');
+        #     x = datetime.datetime.now()
+        #     #print(x)
+        #     #print(x.strftime("%A")) hvilken dag   #print(x.year) hvilket år
+        #     #print(x.strftime("%d"),"-",x.strftime("%m"),"-",x.strftime("%Y")) #dansk dato
+        #     print( x.strftime('We are the %d, %b %Y'))
+        #
+        #     c.execute('INSERT INTO ordre (produkt,dato,status) VALUES (?,?,?)', (n,x,1))
+        #     con.commit()
