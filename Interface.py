@@ -33,6 +33,10 @@ Buy = Button(master, text="Buy", width = 15, height = 2, command = buy, bg = Col
 
 Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, height = 2, command = add, bg = ColorInput).place(x=85, y=240)
 
+produkt_liste = Listbox(master, width=34)
+produkt_liste.place(x=85, y=25)
+
+
 
 def slut ():
     master.destroy()
