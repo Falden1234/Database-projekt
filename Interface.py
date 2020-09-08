@@ -2,6 +2,8 @@ import tkinter
 from tkinter import *
 from PIL import ImageTk,Image
 
+from Database import Data
+d = Data()
 
 master = Tk()
 master.title("Tegninger")
@@ -40,6 +42,9 @@ Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, h
 
 produkt_liste = Listbox(master, width=34)
 produkt_liste.place(x=85, y=25)
+for x in range(4):
+    produkt_liste.insert(END, d.product)
+
 produkt_liste.insert(END, "Gul Legoklods")
 produkt_liste.insert(END, "Blå Legoklods")
 produkt_liste.insert(END, "Rød Legoklods")
