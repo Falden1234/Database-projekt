@@ -40,7 +40,7 @@ Buy = Button(master, text="Buy", width = 15, height = 2, command = buy, bg = Col
 Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, height = 2, command = add, bg = ColorInput).place(x=85, y=240)
 
 
-produkt_liste = Listbox(master, width=12)
+produkt_liste = Listbox(master, width=15)
 produkt_liste.place(x=85, y=25)
 for x in range(4):
     produkt_liste.insert(END, d.product)
@@ -49,9 +49,9 @@ produkt_liste.insert(END, "Gul Legoklods")
 produkt_liste.insert(END, "Blå Legoklods")
 produkt_liste.insert(END, "Rød Legoklods1")
 
-inkoebs_liste = Listbox(master, width=12)
+inkoebs_liste = Listbox(master, width=15)
 inkoebs_liste.place(x=275, y=25)
-inkoebs_liste.insert(END, a2 )
+inkoebs_liste.insert(END,'')
 
 
 
