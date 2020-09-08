@@ -47,7 +47,7 @@ for x in range(4):
 
 produkt_liste.insert(END, "Gul Legoklods")
 produkt_liste.insert(END, "Blå Legoklods")
-produkt_liste.insert(END, "Rød Legoklods")
+produkt_liste.insert(END, "Rød Legoklods1")
 
 inkoebs_liste = Listbox(master, width=12)
 inkoebs_liste.place(x=275, y=25)
