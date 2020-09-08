@@ -70,10 +70,13 @@ class Data:
         print('Database åbnet i class')
 
     def product(self):
-        c = self.con.cursor()
-        c.execute('SELECT id, status FROM status')
-        # for p in c:
-        #     print('id: {} er {} '.format(p[0], p[1]))
+        c = con.cursor()
+        c.execute('SELECT navn, pris FROM produkter')
+        producter = []
+        for p in c:
+            producter.append('id: {} er {} '.format(p[0], p[1]))
+
+        return producter
 
     def add_product(self, n):
         x = datetime.datetime.now()
