@@ -44,11 +44,13 @@ produkt_liste = Listbox(master, width=15)
 produkt_liste.place(x=85, y=25)
 
 for p in d.product():
-    produkt_liste.insert(END, d.product)
+    pro = p
+    produkt_liste.insert(END, pro)
+    print(p)
 
-produkt_liste.insert(END, "Gul Legoklods")
-produkt_liste.insert(END, "Blå Legoklods")
-produkt_liste.insert(END, "Rød Legoklods1")
+# produkt_liste.insert(END, "Gul Legoklods")
+# produkt_liste.insert(END, "Blå Legoklods")
+# produkt_liste.insert(END, "Rød Legoklods1")
 
 inkoebs_liste = Listbox(master, width=15)
 inkoebs_liste.place(x=275, y=25)
