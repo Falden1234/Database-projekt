@@ -1,7 +1,3 @@
-import matplotlib.pyplot as plt
-import math
-from random import randint
-import random
 import tkinter
 from tkinter import *
 from PIL import ImageTk,Image
@@ -10,8 +6,6 @@ from PIL import ImageTk,Image
 master = Tk()
 master.title("Tegninger")
 e = Entry(master)
-
-
 
 canvas=Canvas(master,width=500,height=450)
 
@@ -35,21 +29,9 @@ def add():
 
 
 
-
-
-
-
-
-
-
-
-
 Buy = Button(master, text="Buy", width = 15, height = 2, command = buy, bg = ColorInput).place(x=250, y=240)
 
 Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, height = 2, command = add, bg = ColorInput).place(x=85, y=240)
-
-
-
 
 
 def slut ():
