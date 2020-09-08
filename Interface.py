@@ -23,8 +23,12 @@ ColorInput = "light sky blue"
 Color = "snow"
 
 def buy():
-    a2 = produkt_liste.get(ANCHOR)
-    print("Produkt(er) købt: " + str(a2))
+    # for x in range(len(inkoebs_liste)):
+    #     print(x)
+    # #a2 = inkoebs_liste.get(ANCHOR)
+    # #print("Produkt(er) købt: " + str(a2))
+    #print(inkoebs_liste)
+    pass
 
 
 
@@ -44,8 +48,7 @@ Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, h
 produkt_liste = Listbox(master, width=15)
 produkt_liste.place(x=85, y=25)
 for p in d.product():
-    pro = p
-    produkt_liste.insert(END, pro)
+    produkt_liste.insert(END, p)
     print(p)
 
 

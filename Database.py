@@ -55,15 +55,15 @@ c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("BatMan", 2900))
 con.commit()
 
 #Denne variabel bruges til at modtage input fra brugeren
-inp = ''
+# inp = ''
 
-print('')
-print('Kommandoer: ')
-print('  vis - Viser alle status i databasen')
-print('  visp - Viser alle produkter')
-print('  viso - Viser alle ordre')
-print('  lavordre - Laver ny ordre')
-print('  q   - Afslut program')
+# print('')
+# print('Kommandoer: ')
+# print('  vis - Viser alle status i databasen')
+# print('  visp - Viser alle produkter')
+# print('  viso - Viser alle ordre')
+# print('  lavordre - Laver ny ordre')
+# print('  q   - Afslut program')
 
 class Data:
     def __init__(self):
