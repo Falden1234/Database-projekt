@@ -43,9 +43,8 @@ Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, h
 produkt_liste = Listbox(master, width=15)
 produkt_liste.place(x=85, y=25)
 
-for p in range(4):
-    d.product()
-    produkt_liste.insert(END, "")
+for p in d.product():
+    produkt_liste.insert(END, d.product.navn)
 
 produkt_liste.insert(END, "Gul Legoklods")
 produkt_liste.insert(END, "Blå Legoklods")
