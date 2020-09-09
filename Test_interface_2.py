@@ -23,12 +23,13 @@ ColorInput = "light sky blue"
 Color = "snow"
 
 def buy():
-    # for x in range(len(inkoebs_liste)):
-    #     print(x)
-    # #a2 = inkoebs_liste.get(ANCHOR)
-    # #print("Produkt(er) købt: " + str(a2))
-    #print(inkoebs_liste)
+     # for x in range(len(inkoebs_liste)):
+     #     print(x)
+     # a2 = inkoebs_liste.get(ANCHOR)
+     # print("Produkt(er) købt: " + str(a2))
+     # print(inkoebs_liste)
     pass
+
 
 
 
@@ -37,6 +38,7 @@ def add():
     a2 = produkt_liste.get(ANCHOR)
     print("Du har valgt: " + str(a2))
     inkoebs_liste.insert(END, a2)
+
 
 
 Buy = Button(master, text="Buy", width = 15, height = 2, command = buy, bg = ColorInput).place(x=250, y=240)
