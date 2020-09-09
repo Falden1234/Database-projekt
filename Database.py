@@ -7,10 +7,11 @@ con = sqlite3.connect('data_maleri.db')
 print('Database åbnet')
 
 c = con.cursor()
-c.execute("""DROP TABLE produkter""")
-c.execute("""DROP TABLE ordre""")
-c.execute("""DROP TABLE fremstilling""")
+c.execute('DROP TABLE produkter')
+c.execute('DROP TABLE ordre')
+c.execute('DROP TABLE fremstilling')
 con.commit()
+print('table drop')
 
 try:
     con.execute("""CREATE TABLE produkter (
