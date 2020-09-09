@@ -23,12 +23,18 @@ ColorInput = "light sky blue"
 Color = "snow"
 
 def buy():
-    # for x in range(len(inkoebs_liste)):
-    #     print(x)
-    # #a2 = inkoebs_liste.5get(ANCHOR)
-    # #print("Produkt(er) købt: " + str(a2))
+    #for x in inkoebs_liste:
+         #print(x)
+    # a2 = inkoebs_liste.5get(ANCHOR)
+    # print("Produkt(er) købt: " + str(a2))
     #print(inkoebs_liste)
-    pass
+
+    select_label = Label(master, text='')
+    a2 = inkoebs_liste.get(ANCHOR)
+    print("Du har Købt: " + str(a2))
+    inkoebs_liste.delete(0,END)
+
+
 
 
 

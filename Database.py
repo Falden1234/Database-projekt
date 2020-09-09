@@ -6,7 +6,7 @@ datetime.date.fromisoformat('2019-12-04')
 con = sqlite3.connect('data_maleri.db')
 print('Database åbnet')
 
-#c = con.cursor()
+# c = con.cursor()
 # c.execute('DROP TABLE produkter')
 # c.execute('DROP TABLE ordre')
 # c.execute('DROP TABLE fremstilling')
@@ -82,7 +82,7 @@ class Data:
 
     def id_name(self):
         c = con.cursor()
-        pro = c.execute('SELECT id, navn from produkter WHERE type = (?) (p)')
+        pro = c.execute('SELECT navn from produkter')
         print(pro)
 
     def pris(self):
