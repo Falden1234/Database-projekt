@@ -45,7 +45,8 @@ nb.enable_traversal()
 
 T = ttk.Treeview(master,column=("column0"))
 T.heading("#0", text="Produkter")
-T.column("#1",minwidth=0,width=15, stretch=ttk.NO)
+T.column("#1",minwidth=0,width=15, stretch=NO)
+
 T.pack()
 
 
