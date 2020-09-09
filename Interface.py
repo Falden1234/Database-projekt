@@ -23,8 +23,12 @@ ColorInput = "light sky blue"
 Color = "snow"
 
 def buy():
-    a2 = produkt_liste.get(ANCHOR)
-    print("Printer: " + str(a2))
+    # for x in range(len(inkoebs_liste)):
+    #     print(x)
+    # #a2 = inkoebs_liste.get(ANCHOR)
+    # #print("Produkt(er) købt: " + str(a2))
+    #print(inkoebs_liste)
+    pass
 
 
 
@@ -32,6 +36,7 @@ def add():
     select_label = Label(master, text='')
     a2 = produkt_liste.get(ANCHOR)
     print("Du har valgt: " + str(a2))
+    inkoebs_liste.insert(END, a2)
 
 
 
@@ -42,17 +47,14 @@ Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, h
 
 produkt_liste = Listbox(master, width=15)
 produkt_liste.place(x=85, y=25)
-
 for p in d.product():
-    produkt_liste.insert(END, d.product)
+    produkt_liste.insert(END, p)
+    print(p)
 
-produkt_liste.insert(END, "Gul Legoklods")
-produkt_liste.insert(END, "Blå Legoklods")
-produkt_liste.insert(END, "Rød Legoklods1")
 
 inkoebs_liste = Listbox(master, width=15)
 inkoebs_liste.place(x=275, y=25)
-inkoebs_liste.insert(END,'')
+# inkoebs_liste.insert(END, '')
 
 
 
