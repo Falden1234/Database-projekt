@@ -71,14 +71,19 @@ class Data:
         self.con = sqlite3.connect('data_maleri.db')
         print('Database åbnet i class')
 
-    def product(self):
+    def product_id(self):
         c = con.cursor()
-        c.execute('SELECT navn FROM produkter')
+        c.execute('SELECT id FROM produkter')
         producter = []
         for p in c:
             producter.append('{}'.format(p[0]))
 
         return producter
+
+    def id_name(self):
+        c = con.cursor()
+        pro = c.execute('SELECT id, navn from produkter WHERE produkter.id = 2')
+        print(pro)
 
     def pris(self):
         c = con.cursor()
