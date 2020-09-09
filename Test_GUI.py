@@ -1,11 +1,12 @@
 import tkinter
 from tkinter import *
+from tkinter import ttk
 from PIL import ImageTk,Image
 
 from Database import Data
 d = Data()
 
-master = Tk()
+master = tkinter.Tk()
 master.title("Tegninger")
 e = Entry(master)
 
@@ -22,13 +23,35 @@ ColorInput = "light sky blue"
 
 Color = "snow"
 
+######################
+''' Bare for sjov det er til at lave nye sidder'''
+nb = ttk.Notebook(master)
+nb.pack()
+
+#Make 1st tab
+f1 = tkinter.Frame(nb)
+#Add the tab
+nb.add(f1, text="First tab")
+
+#Make 2nd tab
+f2 = tkinter.Frame(nb)
+#Add 2nd tab
+nb.add(f2, text="Second tab")
+
+nb.select(f2)
+
+nb.enable_traversal()
+#######################
+
+T = ttk.Treeview(master,column=("column0"))
+T.heading("#0", text="Produkter")
+T.column("#1",minwidth=0,width=15, stretch=ttk.NO)
+T.pack()
+
+
 def buy():
-    # for x in range(len(inkoebs_liste)):
-    #     print(x)
-    # #a2 = inkoebs_liste.get(ANCHOR)
-    # #print("Produkt(er) købt: " + str(a2))
-    #print(inkoebs_liste)
-    pass
+    a2 = produkt_liste.get(ANCHOR)
+    print("Printer: " + str(a2))
 
 
 
@@ -36,7 +59,6 @@ def add():
     select_label = Label(master, text='')
     a2 = produkt_liste.get(ANCHOR)
     print("Du har valgt: " + str(a2))
-    inkoebs_liste.insert(END, a2)
 
 
 
@@ -47,16 +69,17 @@ Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, h
 
 produkt_liste = Listbox(master, width=15)
 produkt_liste.place(x=85, y=25)
-for p in d.product():
-    produkt_liste.insert(END, p)
-    print(p)
 
+for p in d.product():
+    produkt_liste.insert(END, d.product)
+
+produkt_liste.insert(END, "Gul Legoklods")
+produkt_liste.insert(END, "Blå Legoklods")
+produkt_liste.insert(END, "Rød Legoklods1")
 
 inkoebs_liste = Listbox(master, width=15)
 inkoebs_liste.place(x=275, y=25)
-# inkoebs_liste.insert(END, '')
-
-
+inkoebs_liste.insert(END,'')
 
 
 

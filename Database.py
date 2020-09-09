@@ -6,6 +6,12 @@ datetime.date.fromisoformat('2019-12-04')
 con = sqlite3.connect('data_maleri.db')
 print('Database åbnet')
 
+c = con.cursor()
+c.execute("""DROP TABLE produkter""")
+c.execute("""DROP TABLE ordre""")
+c.execute("""DROP TABLE fremstilling""")
+con.commit()
+
 try:
     con.execute("""CREATE TABLE produkter (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -34,19 +40,14 @@ try:
 except Exception as e:
     print('Tabellen findes allerede')
 
-try:
-    con.execute("""CREATE TABLE status (
-		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		status STRING)""")
-    print('Tabel oprettet')
-except Exception as e:
-    print('Tabellen findes allerede')
 
 
 
 c = con.cursor()
 #c.execute('INSERT INTO personer (navn,alder,land) VALUES (?,?,?)', ("Hans", 38, 1))
-#c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("DeadPool", 900))
+c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("DeadPool", 900))
+c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("SuperMan", 1900))
+c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("BatMan", 2900))
 #c.execute('INSERT INTO status (status) VALUES (?)', ("Afsendt",))
 #c.execute('DROP TABLE produkter')
 #c.execute('DELETE FROM status WHERE status.id =5')
@@ -54,15 +55,15 @@ c = con.cursor()
 con.commit()
 
 #Denne variabel bruges til at modtage input fra brugeren
-inp = ''
+# inp = ''
 
-print('')
-print('Kommandoer: ')
-print('  vis - Viser alle status i databasen')
-print('  visp - Viser alle produkter')
-print('  viso - Viser alle ordre')
-print('  lavordre - Laver ny ordre')
-print('  q   - Afslut program')
+# print('')
+# print('Kommandoer: ')
+# print('  vis - Viser alle status i databasen')
+# print('  visp - Viser alle produkter')
+# print('  viso - Viser alle ordre')
+# print('  lavordre - Laver ny ordre')
+# print('  q   - Afslut program')
 
 class Data:
     def __init__(self):
@@ -71,10 +72,19 @@ class Data:
 
     def product(self):
         c = con.cursor()
-        c.execute('SELECT navn, pris FROM produkter')
+        c.execute('SELECT navn FROM produkter')
         producter = []
         for p in c:
-            producter.append('id: {} er {} '.format(p[0], p[1]))
+            producter.append('{}'.format(p[0]))
+
+        return producter
+
+    def pris(self):
+        c = con.cursor()
+        c.execute('SELECT pris FROM produkter')
+        producter = []
+        for p in c:
+            producter.append('{}'.format(p[0]))
 
         return producter
 
