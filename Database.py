@@ -82,7 +82,7 @@ class Data:
 
     def id_name(self):
         c = con.cursor()
-        pro = c.execute('SELECT id, navn from produkter WHERE produkter.id = 2')
+        pro = c.execute('SELECT id, navn from produkter WHERE type = (?) (p)')
         print(pro)
 
     def pris(self):
