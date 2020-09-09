@@ -86,16 +86,13 @@ class Data:
 
         return c.fetchone()[0]
 
-    def pris(self):
-        c = con.cursor()
-        c.execute('SELECT pris FROM produkter')
-        producter = []
-        for p in c:
-            producter.append('{}'.format(p[0]))
+    def pris(self, n):
+        c = self.con.cursor()
+        c.execute('SELECT pris from produkter WHERE produkter.id = ?', (n,))
 
-        return producter
+        return c.fetchone()[0]
 
-    def add_product(self, n):
+    def add_ordre(self, n):
         x = datetime.datetime.now()
         print( x.strftime('We are the %d, %b %Y'))
         c.execute('INSERT INTO ordre (produkt,dato,status) VALUES (?,?,?)', (n,x,1))
