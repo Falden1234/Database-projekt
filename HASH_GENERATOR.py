@@ -1,4 +1,4 @@
-import hashlib, bcrypt
+import hashlib
 #Demonstrer forskellen på bcrypt og SHA-1 hashing
 password = input("Skriv password der skal Hashes:\n>")
 print("\nSHA-1:\n")
