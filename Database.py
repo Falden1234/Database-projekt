@@ -6,12 +6,12 @@ datetime.date.fromisoformat('2019-12-04')
 con = sqlite3.connect('data_maleri.db')
 print('Database åbnet')
 
-c = con.cursor()
-c.execute('DROP TABLE produkter')
-c.execute('DROP TABLE ordre')
-c.execute('DROP TABLE fremstilling')
-con.commit()
-print('table drop')
+# c = con.cursor()
+# c.execute('DROP TABLE produkter')
+# c.execute('DROP TABLE ordre')
+# c.execute('DROP TABLE fremstilling')
+# con.commit()
+# print('table drop')
 
 try:
     con.execute("""CREATE TABLE produkter (
@@ -82,7 +82,7 @@ class Data:
 
     def id_name(self):
         c = con.cursor()
-        pro = c.execute('SELECT id, navn from produkter WHERE produkter.id = 2')
+        pro = c.execute('SELECT id, navn from produkter WHERE type = (?) (p)')
         print(pro)
 
     def pris(self):
