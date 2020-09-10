@@ -93,10 +93,16 @@ class Data:
         return c.fetchone()[0]
 
     def add_ordre(self, n):
+        c = self.con.cursor()
         x = datetime.datetime.now()
         print( x.strftime('We are the %d, %b %Y'))
         c.execute('INSERT INTO ordre (produkt,dato,status) VALUES (?,?,?)', (n,x,1))
         self.con.commit()
+
+    def show_ordre(self):
+        c = self.con.cursor()
+        c.execute('SELECT * FROM ordre')
+        return c.fetchone()
 
 # d = Data()
 # d.product()
