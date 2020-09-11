@@ -72,7 +72,7 @@ class Data:
         print('Database åbnet i class')
 
     def product_id(self):
-        c = self.con.cursor()
+        c = con.cursor()
         c.execute('SELECT id FROM produkter')
         producter = []
         for p in c:
@@ -80,11 +80,10 @@ class Data:
 
         return producter
 
-    def id_name(self, n):
-        c = self.con.cursor()
-        c.execute('SELECT navn from produkter WHERE produkter.id = ?', (n,))
-
-        return c.fetchone()[0]
+    def id_name(self):
+        c = con.cursor()
+        pro = c.execute('SELECT navn from produkter WHERE type = (?) (p)')
+        print(pro)
 
     def pris(self):
         c = con.cursor()
