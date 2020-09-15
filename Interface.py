@@ -23,22 +23,19 @@ ColorInput = "light sky blue"
 Color = "snow"
 
 def buy():
-    for x in inkoebs_liste.get(ACTIVE):
-        print(x)
-
     select_label = Label(master, text='')
-    a2 = inkoebs_liste.get(ANCHOR)
-
+    a2 = inkoebs_liste.get(ACTIVE)
     print("Du har Købt: " + str(a2))
     inkoebs_liste.delete(0,END)
-    d.add_ordre(a2)
-    print(d.show_ordre())
+    id = d.name_id(a2)
+    print(id)
+    ordre = d.add_ordre(id)
+    print(d.show_ordre(ordre))
 
 def add():
     select_label = Label(master, text='')
-    a2 = produkt_liste.get(ANCHOR)
+    a2 = produkt_liste.get(ACTIVE)
     #print("Du har valgt: " + str(a2))
-    print(a2)
     print("Du har valgt: " + str(a2) )
     inkoebs_liste.insert(END, a2)
 

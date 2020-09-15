@@ -45,10 +45,10 @@ except Exception as e:
 
 
 c = con.cursor()
-#c.execute('INSERT INTO personer (navn,alder,land) VALUES (?,?,?)', ("Hans", 38, 1))
-#c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("DeadPool", 900))
-#c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("SuperMan", 1900))
-#c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("BatMan", 2900))
+# c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("DeadPool", 900))
+# c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("SuperMan", 1900))
+# c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("BatMan", 2900))
+
 #c.execute('INSERT INTO status (status) VALUES (?)', ("Afsendt",))
 #c.execute('DROP TABLE produkter')
 #c.execute('DELETE FROM status WHERE status.id =5')
@@ -83,8 +83,13 @@ class Data:
     def id_name(self, n):
         c = con.cursor()
         pro = c.execute('SELECT navn from produkter WHERE produkter.id = (?)', (n,))
-        print(pro)
         return pro.fetchone()[0]
+
+    def name_id(self, n):
+        c = con.cursor()
+        name = c.execute('SELECT id from produkter WHERE produkter.navn = (?)', (n,))
+        print(name)
+        return name.fetchone()[0]
 
     def pris(self, n):
         c = self.con.cursor()
@@ -99,9 +104,11 @@ class Data:
         c.execute('INSERT INTO ordre (produkt,dato,status) VALUES (?,?,?)', (n,x,1))
         self.con.commit()
 
-    def show_ordre(self):
+        return c.lastrowid
+
+    def show_ordre(self, n):
         c = self.con.cursor()
-        c.execute('SELECT * FROM ordre')
+        c.execute('SELECT * FROM ordre WHERE id = ?', [n])
         return c.fetchone()
 
 # d = Data()
