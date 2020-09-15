@@ -94,7 +94,7 @@ class Data:
     def add_ordre(self, n):
         c = self.con.cursor()
         x = datetime.datetime.now()
-        print( x.strftime('We are the %d, %b %Y'))
+        print( x.strftime('Today is the %d, %b %Y'))
         c.execute('INSERT INTO ordre (produkt,dato,status) VALUES (?,?,?)', (n,x,1))
         self.con.commit()
 
