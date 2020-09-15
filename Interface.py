@@ -31,7 +31,8 @@ def buy():
 
     print("Du har Købt: " + str(a2))
     inkoebs_liste.delete(0,END)
-
+    d.add_ordre(a2)
+    print(d.show_ordre())
 
 
 
