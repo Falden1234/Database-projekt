@@ -28,19 +28,17 @@ def buy():
 
     select_label = Label(master, text='')
     a2 = inkoebs_liste.get(ANCHOR)
+
     print("Du har Købt: " + str(a2))
     inkoebs_liste.delete(0,END)
     d.add_ordre(a2)
     print(d.show_ordre())
 
-    #Test 1234
-
-
-
 def add():
     select_label = Label(master, text='')
     a2 = produkt_liste.get(ANCHOR)
-    print("Du har valgt: " + str(a2))
+    #print("Du har valgt: " + str(a2))
+    print(a2)
     inkoebs_liste.insert(END, a2)
 
 

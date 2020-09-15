@@ -46,9 +46,9 @@ except Exception as e:
 
 c = con.cursor()
 #c.execute('INSERT INTO personer (navn,alder,land) VALUES (?,?,?)', ("Hans", 38, 1))
-#c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("DeadPool", 900))
-#c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("SuperMan", 1900))
-#c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("BatMan", 2900))
+# c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("DeadPool", 900))
+# c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("SuperMan", 1900))
+# c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("BatMan", 2900))
 #c.execute('INSERT INTO status (status) VALUES (?)', ("Afsendt",))
 #c.execute('DROP TABLE produkter')
 #c.execute('DELETE FROM status WHERE status.id =5')
@@ -72,7 +72,7 @@ class Data:
         print('Database åbnet i class')
 
     def product_id(self):
-        c = self.con.cursor()
+        c = con.cursor()
         c.execute('SELECT id FROM produkter')
         producter = []
         for p in c:
@@ -81,10 +81,10 @@ class Data:
         return producter
 
     def id_name(self, n):
-        c = self.con.cursor()
-        c.execute('SELECT navn from produkter WHERE produkter.id = ?', (n,))
-
-        return c.fetchone()[0]
+        c = con.cursor()
+        pro = c.execute('SELECT navn from produkter WHERE produkter.id = (?)', (n,))
+        print(pro)
+        return pro.fetchone()[0]
 
     def pris(self, n):
         c = self.con.cursor()
