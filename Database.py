@@ -82,14 +82,9 @@ class Data:
 
     def id_name(self, n):
         c = con.cursor()
-<<<<<<< HEAD
         pro = c.execute('SELECT navn from produkter WHERE produkter.id = (?)', (n,))
         print(pro)
         return pro.fetchone()[0]
-=======
-        pro = c.execute('SELECT navn from produkter WHERE id = ?', (n,))
-        print(pro)
->>>>>>> 1a7d2deb71889347d6fd9ac8579fb1e3b365f7b8
 
     def pris(self, n):
         c = self.con.cursor()
