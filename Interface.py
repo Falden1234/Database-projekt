@@ -33,6 +33,7 @@ def buy():
     d.add_ordre(a2)
     print(d.show_ordre())
 
+    #Test 1234
 
 
 
