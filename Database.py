@@ -80,9 +80,9 @@ class Data:
 
         return producter
 
-    def id_name(self):
+    def id_name(self, n):
         c = con.cursor()
-        pro = c.execute('SELECT navn from produkter WHERE type = (?) (p)')
+        pro = c.execute('SELECT navn from produkter WHERE type = (?)', (n,))
         print(pro)
 
     def pris(self, n):
