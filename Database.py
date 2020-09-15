@@ -6,12 +6,12 @@ datetime.date.fromisoformat('2019-12-04')
 con = sqlite3.connect('data_maleri.db')
 print('Database åbnet')
 
-# c = con.cursor()
-# c.execute('DROP TABLE produkter')
-# c.execute('DROP TABLE ordre')
-# c.execute('DROP TABLE fremstilling')
-# con.commit()
-# print('table drop')
+c = con.cursor()
+c.execute('DROP TABLE produkter')
+c.execute('DROP TABLE ordre')
+c.execute('DROP TABLE fremstilling')
+con.commit()
+print('table drop')
 
 try:
     con.execute("""CREATE TABLE produkter (
@@ -45,9 +45,9 @@ except Exception as e:
 
 
 c = con.cursor()
-# c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("DeadPool", 900))
-# c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("SuperMan", 1900))
-# c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("BatMan", 2900))
+c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("DeadPool", 900))
+c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("SuperMan", 1900))
+c.execute('INSERT INTO produkter (navn,pris) VALUES (?,?)', ("BatMan", 2900))
 
 #c.execute('INSERT INTO status (status) VALUES (?)', ("Afsendt",))
 #c.execute('DROP TABLE produkter')
