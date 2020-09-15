@@ -82,9 +82,14 @@ class Data:
 
     def id_name(self, n):
         c = con.cursor()
+<<<<<<< HEAD
         pro = c.execute('SELECT navn from produkter WHERE produkter.id = (?)', (n,))
         print(pro)
         return pro.fetchone()[0]
+=======
+        pro = c.execute('SELECT navn from produkter WHERE id = ?', (n,))
+        print(pro)
+>>>>>>> 1a7d2deb71889347d6fd9ac8579fb1e3b365f7b8
 
     def pris(self, n):
         c = self.con.cursor()
@@ -95,7 +100,7 @@ class Data:
     def add_ordre(self, n):
         c = self.con.cursor()
         x = datetime.datetime.now()
-        print( x.strftime('We are the %d, %b %Y'))
+        print( x.strftime('Today is the %d, %b %Y'))
         c.execute('INSERT INTO ordre (produkt,dato,status) VALUES (?,?,?)', (n,x,1))
         self.con.commit()
 
