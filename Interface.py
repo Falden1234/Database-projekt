@@ -34,15 +34,23 @@ def buy():
 
 def add():
     select_label = Label(master, text='')
-    a2 = produkt_liste.get(ACTIVE)
+    a2 = produkt_liste.get(ANCHOR)
     #print("Du har valgt: " + str(a2))
     print("Du har valgt: " + str(a2) )
     inkoebs_liste.insert(END, a2)
 
+def Fjern():
+    select_label = Label(master, text='')
+    a2 = inkoebs_liste.get(ANCHOR)
+    #print("Du har valgt: " + str(a2))
+    print("Du har valgt: " + str(a2) )
+    inkoebs_liste.delete(0,END)
+
+Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, height = 2, command = add, bg = ColorInput).place(x=85, y=240)
 
 Buy = Button(master, text="Buy", width = 15, height = 2, command = buy, bg = ColorInput).place(x=250, y=240)
 
-Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, height = 2, command = add, bg = ColorInput).place(x=85, y=240)
+Fortryd = Button(master, text="Fjern fra kurv", width = 15, height = 2, command = Fjern, bg = ColorInput).place(x=185, y=310)
 
 
 produkt_liste = Listbox(master, width=15)
