@@ -46,6 +46,7 @@ def Fjern():
     a2 = inkoebs_liste.get(ANCHOR)
     idx = inkoebs_liste.get(0, END).index(a2)
     inkoebs_liste.delete(idx)
+    pris_liste.delete(idx)
     print("Du har fjernet: " + str(a2) )
 
 Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, height = 2, command = add, bg = ColorInput).place(x=85, y=240)

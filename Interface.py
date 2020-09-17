@@ -123,8 +123,6 @@ def stop_task(cmd):
 
 
 
-
-
 def buy():
     select_label = Label(master, text='')
     a2 = inkoebs_liste.get(ACTIVE)
@@ -172,11 +170,6 @@ Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, h
 Buy = Button(master, text="Buy", width = 15, height = 2, command = lambda: perform_task(task), bg = ColorInput).place(x=250, y=240)
 
 Fortryd = Button(master, text="Fjern fra kurv", width = 15, height = 2, command = lambda: perform_task("roed_klods"), bg = ColorInput).place(x=185, y=310)
-
-
-
-
-
 
 
 def slut ():
