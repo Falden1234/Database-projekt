@@ -10,7 +10,7 @@ master.title("Tegninger")
 e = Entry(master)
 
 canvas=Canvas(master,width=500,height=450)
-
+#hej
 #562 x 446
 image=ImageTk.PhotoImage(Image.open("robot2.jpg"))
 
