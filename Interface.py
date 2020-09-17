@@ -35,16 +35,15 @@ def buy():
 def add():
     select_label = Label(master, text='')
     a2 = produkt_liste.get(ANCHOR)
-    #print("Du har valgt: " + str(a2))
     print("Du har valgt: " + str(a2) )
     inkoebs_liste.insert(END, a2)
 
 def Fjern():
     select_label = Label(master, text='')
     a2 = inkoebs_liste.get(ANCHOR)
-    #print("Du har valgt: " + str(a2))
-    print("Du har valgt: " + str(a2) )
-    inkoebs_liste.delete(0,END)
+    idx = inkoebs_liste.get(0, END).index(a2)
+    inkoebs_liste.delete(idx)
+    print("Du har fjernet: " + str(a2) )
 
 Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, height = 2, command = add, bg = ColorInput).place(x=85, y=240)
 
