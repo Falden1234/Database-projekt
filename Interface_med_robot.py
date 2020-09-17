@@ -105,18 +105,16 @@ def buy():
 def add():
     select_label = Label(master, text='')
     a2 = produkt_liste.get(ANCHOR)
+    #print("Du har valgt: " + str(a2))
     print("Du har valgt: " + str(a2) )
     inkoebs_liste.insert(END, a2)
-    id = d.name_id(a2)
-    pris = d.pris(id)
-    pris_liste.insert(END, pris)
 
 def Fjern():
     select_label = Label(master, text='')
     a2 = inkoebs_liste.get(ANCHOR)
-    idx = inkoebs_liste.get(0, END).index(a2)
-    inkoebs_liste.delete(idx)
-    print("Du har fjernet: " + str(a2) )
+    #print("Du har valgt: " + str(a2))
+    print("Du har valgt: " + str(a2) )
+    inkoebs_liste.delete(0,END)
 
 x = "roed_klods"
 
@@ -134,8 +132,6 @@ for p in d.product_id():
     navn = d.id_name(p)
     produkt_liste.insert(END, navn)
 
-pris_liste = Listbox(master, width=10)
-pris_liste.place(x=370, y=25)
 
 inkoebs_liste = Listbox(master, width=15)
 inkoebs_liste.place(x=275, y=25)
