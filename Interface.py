@@ -24,6 +24,19 @@ ColorInput = "light sky blue"
 
 Color = "snow"
 
+produkt_liste = Listbox(master, width=15)
+produkt_liste.place(x=85, y=25)
+for p in d.product_id():
+    navn = d.id_name(p)
+    produkt_liste.insert(END, navn)
+
+pris_liste = Listbox(master, width=10)
+pris_liste.place(x=370, y=25)
+
+inkoebs_liste = Listbox(master, width=15)
+inkoebs_liste.place(x=275, y=25)
+# inkoebs_liste.insert(END, '')
+
 
 def status():
     TCP_PORT = 29999
@@ -42,6 +55,8 @@ def status():
     print(response)
     s.close()
     return str(response)
+
+task = inkoebs_liste.get(ANCHOR)
 
 roed_klods = "roed_klods"
 def perform_task(cmd):
@@ -63,7 +78,25 @@ def perform_task(cmd):
     s.send(b"play\n")
     response = s.recv(BUFFER_SIZE)
     s.close()
-    x = "roed_klods"
+
+    x = "skaldefalde/roed_klods"
+    y = "skaldefalde/gul_klods"
+    z = "skaldefalde/blaa_klods"
+    select_label = Label(master, text='')
+    a2 = inkoebs_liste.get(ACTIVE)
+    print("Du har Købt: " + str(a2))
+    inkoebs_liste.delete(0,END)
+    id = d.name_id(a2)
+    print(id)
+    ordre = d.add_ordre(id)
+    print(d.show_ordre(ordre))
+
+    if a2 == "DeadPool":
+        task = x
+    if a2 == "SuperMan":
+        task = z
+    if a2 == "Batman":
+        task = y
 
 
 
@@ -102,6 +135,13 @@ def buy():
     ordre = d.add_ordre(id)
     print(d.show_ordre(ordre))
 
+    if a2 == "DeadPool":
+        task = x
+    if a2 == "SuperMan":
+        task = z
+    if a2 == "Batman":
+        task = y
+
 def add():
     select_label = Label(master, text='')
     a2 = produkt_liste.get(ANCHOR)
@@ -119,27 +159,21 @@ def Fjern():
     print("Du har fjernet: " + str(a2) )
 
 x = "roed_klods"
+y = "gul_klods"
+z = "blaa_klods"
+
+def funkbuy():
+    buy()
+    lambda: perform_task(task)
 
 
 Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, height = 2, command = add, bg = ColorInput).place(x=85, y=240)
 
-Buy = Button(master, text="Buy", width = 15, height = 2, command =  lambda: perform_task(x), bg = ColorInput).place(x=250, y=240)
+Buy = Button(master, text="Buy", width = 15, height = 2, command = lambda: perform_task(task), bg = ColorInput).place(x=250, y=240)
 
 Fortryd = Button(master, text="Fjern fra kurv", width = 15, height = 2, command = lambda: perform_task("roed_klods"), bg = ColorInput).place(x=185, y=310)
 
 
-produkt_liste = Listbox(master, width=15)
-produkt_liste.place(x=85, y=25)
-for p in d.product_id():
-    navn = d.id_name(p)
-    produkt_liste.insert(END, navn)
-
-pris_liste = Listbox(master, width=10)
-pris_liste.place(x=370, y=25)
-
-inkoebs_liste = Listbox(master, width=15)
-inkoebs_liste.place(x=275, y=25)
-# inkoebs_liste.insert(END, '')
 
 
 
