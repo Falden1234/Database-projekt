@@ -63,3 +63,5 @@ def stop_task(cmd):
 perform_task("skaldefalde/blaa_klods")
 
 #stop_task("roed_klods")
+
+#status()

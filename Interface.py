@@ -59,6 +59,7 @@ def status():
 task = inkoebs_liste.get(ANCHOR)
 
 roed_klods = "roed_klods"
+
 def perform_task(cmd):
     TCP_PORT = 29999
     BUFFER_SIZE = 1024
@@ -72,18 +73,12 @@ def perform_task(cmd):
         print("Socket error")
         s.close()
 
-    st = "load /programs/{}.urp\n".format(cmd)
-    s.send(bytearray(st,'utf8'))
-    response = s.recv(BUFFER_SIZE)
-    s.send(b"play\n")
-    response = s.recv(BUFFER_SIZE)
-    s.close()
 
     x = "skaldefalde/roed_klods"
     y = "skaldefalde/gul_klods"
     z = "skaldefalde/blaa_klods"
     select_label = Label(master, text='')
-    a2 = inkoebs_liste.get(ACTIVE)
+    a2 = inkoebs_liste.get(ANCHOR)
     print("Du har Købt: " + str(a2))
     inkoebs_liste.delete(0,END)
     id = d.name_id(a2)
@@ -92,11 +87,21 @@ def perform_task(cmd):
     print(d.show_ordre(ordre))
 
     if a2 == "DeadPool":
-        task = x
+        task = "skaldefalde/roed_klods"
     if a2 == "SuperMan":
-        task = z
-    if a2 == "Batman":
-        task = y
+        task = "skaldefalde/blaa_klods"
+    if a2 == "BatMan":
+        task = "skaldefalde/gul_klods"
+    print(task)
+
+
+    st = "load /programs/{}.urp\n".format(task)
+    s.send(bytearray(st,'utf8'))
+    response = s.recv(BUFFER_SIZE)
+    s.send(b"play\n")
+    response = s.recv(BUFFER_SIZE)
+    s.close()
+
 
 
 
@@ -155,14 +160,6 @@ def Fjern():
     idx = inkoebs_liste.get(0, END).index(a2)
     inkoebs_liste.delete(idx)
     print("Du har fjernet: " + str(a2) )
-
-x = "roed_klods"
-y = "gul_klods"
-z = "blaa_klods"
-
-def funkbuy():
-    buy()
-    lambda: perform_task(task)
 
 
 Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, height = 2, command = add, bg = ColorInput).place(x=85, y=240)
