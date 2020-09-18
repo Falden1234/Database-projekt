@@ -26,7 +26,7 @@ Color = "snow"
 
 produkt_liste = Listbox(master, width=15)
 produkt_liste.place(x=50, y=25)
-pris_pro = Listbox(master, width=10)
+pris_pro = Listbox(master, width=11)
 pris_pro.place(x=145, y=25)
 for p in d.product_id():
     navn = d.id_name(p)
@@ -35,7 +35,7 @@ for p in d.product_id():
     pris_pro.insert(END, pris)
 
 
-pris_liste = Listbox(master, width=10)
+pris_liste = Listbox(master, width=14)
 pris_liste.place(x=370, y=25)
 
 inkoebs_liste = Listbox(master, width=15)
@@ -164,14 +164,15 @@ def Fjern():
     a2 = inkoebs_liste.get(ANCHOR)
     idx = inkoebs_liste.get(0, END).index(a2)
     inkoebs_liste.delete(idx)
+    pris_liste.delete(idx)
     print("Du har fjernet: " + str(a2) )
 
 
-Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, height = 2, command = add, bg = ColorInput).place(x=50, y=190)
+Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 22, height = 2, command = add, bg = ColorInput).place(x=50, y=190)
 
 Buy = Button(master, text="Buy", width = 15, height = 2, command = lambda: perform_task(task), bg = ColorInput).place(x=260, y=190)
 
-Fortryd = Button(master, text="Fjern fra kurv", width = 15, height = 2, command = lambda: perform_task("roed_klods"), bg = ColorInput).place(x=375, y=190)
+Fortryd = Button(master, text="Fjern fra kurv", width = 15, height = 2, command = Fjern, bg = ColorInput).place(x=375, y=190)
 
 
 def slut ():
