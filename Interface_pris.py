@@ -1,5 +1,6 @@
 import tkinter
 from tkinter import *
+#from tkinter import tkk
 from PIL import ImageTk,Image
 
 from Database import Data
@@ -27,6 +28,7 @@ def buy():
     a2 = inkoebs_liste.get(ACTIVE)
     print("Du har Købt: " + str(a2))
     inkoebs_liste.delete(0,END)
+    pris_liste.delete(0,END)
     id = d.name_id(a2)
     print(id)
     ordre = d.add_ordre(id)
@@ -49,29 +51,59 @@ def Fjern():
     pris_liste.delete(idx)
     print("Du har fjernet: " + str(a2) )
 
-Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, height = 2, command = add, bg = ColorInput).place(x=85, y=240)
+Add_to_shopping_cart = Button(master, text="Add to shopping cart", width = 17, height = 2, command = add, bg = ColorInput).place(x=50, y=190)
 
-Buy = Button(master, text="Buy", width = 15, height = 2, command = buy, bg = ColorInput).place(x=250, y=240)
+Buy = Button(master, text="Buy", width = 15, height = 2, command = buy, bg = ColorInput).place(x=260, y=190)
 
-Fortryd = Button(master, text="Fjern fra kurv", width = 15, height = 2, command = Fjern, bg = ColorInput).place(x=185, y=310)
+Fortryd = Button(master, text="Fjern fra kurv", width = 15, height = 2, command = Fjern, bg = ColorInput).place(x=375, y=190)
 
 
 produkt_liste = Listbox(master, width=15)
-produkt_liste.place(x=85, y=25)
+produkt_liste.place(x=50, y=25)
+pris_pro = Listbox(master, width=10)
+pris_pro.place(x=145, y=25)
 for p in d.product_id():
     navn = d.id_name(p)
     produkt_liste.insert(END, navn)
+    pris = d.pris(p)
+    pris_pro.insert(END, pris)
 
 pris_liste = Listbox(master, width=10)
 pris_liste.place(x=370, y=25)
 
 inkoebs_liste = Listbox(master, width=15)
 inkoebs_liste.place(x=275, y=25)
-# inkoebs_liste.insert(END, '')
 
+# ordre_liste = Listbox(master, width=15)
+# ordre_liste.place(x=50, y=240)
+# ordre_liste.ColumnCount = 3
+# ordre_liste.ColumnWidths = "20;40;60"
+#
+# ordre_liste.AddItem
+# ordre_liste.List(0,0) = 100
+# ordre_liste.List(0,1) = 200
+# ordre_liste.List(0,2) = 300
 
+# db_view = ttk.Treeview(data_frame, column=("column1", "column2"), show='headings')
+# db_view.heading("#1", text="Titel", command=self.sorterTitel)
+# db_view.column("#1",minwidth=0,width=150, stretch=tk.NO)
 
-
+# nb = ttk.Notebook(master)
+# nb.pack()
+#
+# #Make 1st tab
+# f1 = tkinter.Frame(nb)
+# #Add the tab
+# nb.add(f1, text="First tab")
+#
+# #Make 2nd tab
+# f2 = tkinter.Frame(nb)
+# #Add 2nd tab
+# nb.add(f2, text="Second tab")
+#
+# nb.select(f2)
+#
+# nb.enable_traversal()
 
 def slut ():
     master.destroy()
