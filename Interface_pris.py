@@ -1,6 +1,6 @@
 import tkinter
 from tkinter import *
-#from tkinter import tkk
+from tkinter import ttk
 from PIL import ImageTk,Image
 
 from Database import Data
@@ -33,6 +33,9 @@ def buy():
     print(id)
     ordre = d.add_ordre(id)
     print(d.show_ordre(ordre))
+
+    # ordre1 = d.show_ordre(id)
+    # ordre_liste.insert(ordre1)
 
 def add():
     select_label = Label(master, text='')
@@ -74,36 +77,14 @@ pris_liste.place(x=370, y=25)
 inkoebs_liste = Listbox(master, width=15)
 inkoebs_liste.place(x=275, y=25)
 
-# ordre_liste = Listbox(master, width=15)
-# ordre_liste.place(x=50, y=240)
-# ordre_liste.ColumnCount = 3
-# ordre_liste.ColumnWidths = "20;40;60"
-#
-# ordre_liste.AddItem
-# ordre_liste.List(0,0) = 100
-# ordre_liste.List(0,1) = 200
-# ordre_liste.List(0,2) = 300
+ordre_liste = Listbox(master, width=50)
+ordre_liste.place(x=50, y=240)
+# for p in 10:
+#     ordre = d.show_ordre(p)
+#     ordre_liste.insert(ordre)
 
-# db_view = ttk.Treeview(data_frame, column=("column1", "column2"), show='headings')
-# db_view.heading("#1", text="Titel", command=self.sorterTitel)
-# db_view.column("#1",minwidth=0,width=150, stretch=tk.NO)
 
-# nb = ttk.Notebook(master)
-# nb.pack()
-#
-# #Make 1st tab
-# f1 = tkinter.Frame(nb)
-# #Add the tab
-# nb.add(f1, text="First tab")
-#
-# #Make 2nd tab
-# f2 = tkinter.Frame(nb)
-# #Add 2nd tab
-# nb.add(f2, text="Second tab")
-#
-# nb.select(f2)
-#
-# nb.enable_traversal()
+
 
 def slut ():
     master.destroy()
